@@ -19,7 +19,10 @@ const studentRoutes = require('./routes/student');
 const profileRoutes = require('./routes/profile');
 const uploadRoutes = require('./routes/upload');
 const attendanceRoutes = require('./routes/attendance'); // Add this at top
-
+const emailRoutes = require('./routes/emailer');
+app.use('/api/emails', emailRoutes);
+const extractEntitiesRoute = require('./routes/extract-entities');
+app.use('/api', extractEntitiesRoute); //
 app.use('/api/attendance', attendanceRoutes); // Add this in middlewares
 
 // ✅ Serve uploaded files statically
